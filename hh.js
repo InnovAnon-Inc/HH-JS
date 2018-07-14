@@ -2,6 +2,8 @@ const enum Intervals = {
   P1, m2, M2, m3, M3, P4, A4, d5, P5, m6, M6, m7, M7 
 };
 
+alert ("a");
+
 const IntervalToSemitones = {
   P1 : 0,
   m2 : 1,
@@ -16,6 +18,8 @@ const IntervalToSemitones = {
   m7 : 10,
   M7 : 11
 };
+
+alert ("b");
 
 const SemitonesToIntervals = {
   0 : (P1),
