@@ -1,17 +1,3 @@
-function intDiv (a, b) {
- var result = a / b;
- if (result >= 0)
-  return Math.floor (result);
- else
-  return Math.ceil (result);
-}
-
-function sum (array) {
- return array.reduce ((x, y) => x + y);
-}
-
-// ----------
-
 var nSemitone = 12;
 
 const ModeGenerator = { 2, 2, 1, 2, 2, 2, 1 };
