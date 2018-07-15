@@ -1,5 +1,7 @@
+var nSemitone = 12;
+
 const ModeGenerator = { 2, 2, 1, 2, 2, 2, 1 };
-assert (sum (ModeGenerator) == 12); // 12-semitone scale
+assert (sum (ModeGenerator) == nSemitone); // 12-semitone scale
 
 const Modes = {
   "Ionian"      : 0,
@@ -43,7 +45,8 @@ var semitones = getSemitones (key, mg);
 
 // ----------
 
-
+// TODO semitoneToIntervalName
+// TODO semitoneToRatio
 
 
 
