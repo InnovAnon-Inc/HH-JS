@@ -1,3 +1,70 @@
+const ModeGenerator = { 2, 2, 1, 2, 2, 2, 1 };
+assert (sum (ModeGenerator) == 12); // 12-semitone scale
+
+const Modes = {
+  "Ionian"      : 0,
+  "Dorian"      : 1, // rotate left by 1 the ModeGenerator
+  "Phrygian"    : 2,
+  "Lydian"      : 3,
+  "Mixolydian"  : 4,
+  "Aeolian"     : 5,
+  "Locrian"     : 6,
+};
+
+var mode = 0; // [0 - 6]
+
+// TODO syntax
+function getModeGenerator (ModeGenerator, mode) {
+ var a = ModeGenerator[0, mode + 1];
+ var b = ModeGenerator[mode + 1, ModeGenerator.length];
+ return a + b;
+}
+
+var mg = getModeGenerator (ModeGenerator, mode);
+
+function getBrighterMode (amount, mode) {
+ return (mode + amount * 3) % Modes.length;
+}
+function getDarkerMode (amount, mode) {
+ return (mode + amount * 4) % Modes.length; 
+}
+
+// ----------
+
+var key = 0; // [0 - 11]
+
+function getSemitones (key, mg) {
+  var semitones = { key };
+  for (var i = 0; i < mg.length; i++)
+    semitones[i + 1] = semitones[i] + mg[i];
+}
+
+var semitones = getSemitones (key, mg);
+
+// ----------
+
+
+
+
+
+
+
+
+//
+
+
+/*
+function semitoneToIntervalName (semitone, mode) {
+  var octave = intDiv (semitone, 12);
+  var 
+}
+
+function Scale {
+  var intervalNames = { "P1", "m2", "M2", "m3", "M3", "P4"
+};
+*/
+
+/*
 const IntervalToSemitones = {
   "P1" : 0,
   "m2" : 1,
@@ -177,20 +244,39 @@ const PrimeLimit_4 = {
   "m7" : 7/4,
   "M7" : 13/7
 };
-
+*/
+/*
 var baseFrequency = 432;
 var intervalsToRatios = PrimeLimit5_SymmetricScale1;
 
-const ModeGenerator = { 2, 2, 1, 2, 2, 2, 1 };
-var mode = 0; // [0 - 6]
-var mg = ModeGenerator.rotate (mode);
+function intDiv (a, b) {
+ var result = a / b;
+ if (result >= 0)
+  return Math.floor (result);
+ else
+  return Math.ceil (result);
+}
+
+function semitoneToRatio (semitone, intervalsToRatios) {
+  var d = intDiv (semitone, intervalsToRatios.length);
+  var r = semitone % intervalsToRatios.length;
+  return (2 ** d) * intervalsToRatios[r];
+}
 
 var key = 0; // [0 - 11]
-function getScale (key, mg) {
-  var semitones = { key };
+const ModeGenerator = { 2, 2, 1, 2, 2, 2, 1 };
+var mode = 0; // [0 - 6]
+
+
+function getScale (key, mode, ModeGenerator) {
+  var semitones = {};
+  semitones[0] = key + mode;
   for (var i = 0; i < mg.length; i++)
     semitones[i + 1] = semitones[i] + mg[i];
 }
 var scale = getScale (key, mg);
+*/
+
+
 
 alert ("success");
