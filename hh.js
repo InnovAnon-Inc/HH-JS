@@ -13,6 +13,8 @@ const IntervalToSemitones = {
   "M7" : 11
 };
 
+// TODO intervalToSemitone (interval) {}
+
 const SemitonesToIntervals = {
   0 : ("P1"),
   1 : ("m2"),
@@ -27,6 +29,8 @@ const SemitonesToIntervals = {
   10 : ("m7"),
   11 : ("M7")
 };
+
+// TODO semitoneToInterval (semitone) {}
 
 const PrimeLimit5_SymmetricScale1 = {
   "P1" : 1/1,
@@ -43,6 +47,8 @@ const PrimeLimit5_SymmetricScale1 = {
   "m7" : 16/9,
   "M7" : 15/8
 };
+
+// TODO intervalToRatio (interval) {}
 
 const PrimeLimit5_SymmetricScale2 = {
   "P1" : 1/1,
@@ -172,5 +178,19 @@ const PrimeLimit_4 = {
   "M7" : 13/7
 };
 
-alert ("success");
+var baseFrequency = 432;
+var intervalsToRatios = PrimeLimit5_SymmetricScale1;
 
+const ModeGenerator = { 2, 2, 1, 2, 2, 2, 1 };
+var mode = 0; // [0 - 6]
+var mg = ModeGenerator.rotate (mode);
+
+var key = 0; // [0 - 11]
+function getScale (key, mg) {
+  var semitones = { key };
+  for (var i = 0; i < mg.length; i++)
+    semitones[i + 1] = semitones[i] + mg[i];
+}
+var scale = getScale (key, mg);
+
+alert ("success");
