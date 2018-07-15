@@ -1,3 +1,6 @@
+// TODO include arith.js
+// TODO include arrays.js
+
 function scaleHarmonicRatio (rat) { return binaryLog (rat); }
 
 function logScaleToDegrees (ls) { return 360 * ls; }
