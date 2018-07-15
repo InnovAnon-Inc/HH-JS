@@ -15,11 +15,10 @@ const Modes = {
 
 var mode = 0; // [0 - 6]
 
-// TODO syntax
 function getModeGenerator (ModeGenerator, mode) {
- var a = ModeGenerator[0, mode + 1];
- var b = ModeGenerator[mode + 1, ModeGenerator.length];
- return a + b;
+ var a = ModeGenerator.slice (0, mode + 1);
+ var b = ModeGenerator.slice (mode + 1, ModeGenerator.length);
+ return a.concat (b);
 }
 
 var mg = getModeGenerator (ModeGenerator, mode);
@@ -46,7 +45,7 @@ var semitones = getSemitones (key, mg);
 // ----------
 
 // TODO semitoneToIntervalName
-// TODO semitoneToRatio
+// TODO intervalNameToRatio
 
 
 
