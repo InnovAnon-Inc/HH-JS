@@ -1,4 +1,3 @@
-function binaryLog (n) { return Math.log (n) / Math.log (2); }
 function scaleHarmonicRatio (rat) { return binaryLog (rat); }
 
 function logScaleToDegrees (ls) { return 360 * ls; }
