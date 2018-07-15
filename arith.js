@@ -6,6 +6,4 @@ function intDiv (a, b) {
   return Math.ceil (result);
 }
 
-function sum (array) { return array.reduce ((x, y) => x + y); }
-
 function binaryLog (n) { return Math.log (n) / Math.log (2); }
