@@ -38,8 +38,26 @@ function harmonicRatiosToTriangles (hrs) {
   return triangles;
 }
 
+function getDistance (pt1, pt2) {
+ assert (pt1.length == pt2.length);
+ var ds = {};
+ for (var i = 0; i < pt1.length; i++)
+   ds.push (pt2[i] - pt1[i]);
+ const ds2 = ds.map (x => x ** 2);
+ const s = sum (ds2);
+ return Math.sqrt (s); 
+}
+
+function getSides (triangle) {
+  var sides = zip (triangle, triangle.slice (1))
+  sides.push ((triangle[triangle.length - 1], triangle[0]));
+  return sides;
+}
+
 function getPerimeter (triangle) {
-  // TODO
+  const sides = getSides (triangle);
+  const sideLengths = sides.map (getDistance);
+  return sum (sideLenghts); 
 }
 
 function getArea (triangle) {
